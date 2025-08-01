@@ -12,32 +12,30 @@ on:
 jobs:
   lint:
     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v3
-#       - uses: pnpm/action-setup@v2
-#       - uses: actions/setup-node@v3
-#         with:
-#           node-version: 17.x
-#           cache: pnpm
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
 
-#       - name: Install
-#         run: pnpm install
+      - name: Install
+        run: npm ci
 
-#       - name: Lint
-#         run: pnpm run lint
+      - name: Lint
+        run: npm run lint
 
-#   typecheck:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v3
-#       - uses: pnpm/action-setup@v2
-#       - uses: actions/setup-node@v3
-#         with:
-#           node-version: 17.x
-#           cache: pnpm
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
 
-#       - name: Install
-#         run: pnpm install
+      - name: Install
+        run: npm ci
 
-#       - name: Typecheck
-#         run: pnpm run typecheck
+      - name: Typecheck
+        run: npm run type-check
