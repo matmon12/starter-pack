@@ -1,8 +1,13 @@
 {
   "recommendations": [
-    "Vue.volar",
     "dbaeumer.vscode-eslint",
     "EditorConfig.EditorConfig",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "antfu.vite",
+    "antfu.goto-alias",
+    "vue.volar",
+    "lokalise.i18n-ally",
+    "antfu.iconify",
+    "streetsidesoftware.code-spell-checker"
   ]
 }
