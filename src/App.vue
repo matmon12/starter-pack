@@ -1,4 +1,3 @@
-<script setup lang="ts"></script>
 
 <template>
   <h1>You did it!</h1>
@@ -8,4 +7,10 @@
   </p>
 </template>
 
-<style scoped></style>
+<script setup lang="ts">
+const test = 1;
+
+</script>
+
+<style scoped>
+</style>
