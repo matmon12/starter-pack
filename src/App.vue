@@ -4,6 +4,7 @@
     Visit <a class="test" href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org </a> to
     read the
   </p>
+<TestVue/>
 </template>
 
 <script setup lang="ts">
