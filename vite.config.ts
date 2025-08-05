@@ -19,8 +19,18 @@ export default defineConfig({
       vueTsc: true,
     }),
     AutoImport({
-      imports: ['vue', 'vue-router', '@vueuse/head', '@vueuse/core'],
+      imports: [
+        'vue',
+        'vue-router',
+        '@vueuse/head',
+        '@vueuse/core',
+        {
+          '@/app/utils/classes': ['getClasses'],
+          '@/app/utils': ['getImageUrl']
+        },
+      ],
       dts: './auto-imports.d.ts',
+      vueTemplate: true
     }),
     Components({
       dirs: ['src/**/components'],
@@ -87,8 +97,8 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        // additionalData: `@import "@/style/_var.scss`
-      }
-    }
-  }
+        additionalData: `@use "@/app/styles/mixins.scss" as *;`,
+      },
+    },
+  },
 })
