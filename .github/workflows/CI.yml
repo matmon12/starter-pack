@@ -62,4 +62,4 @@ jobs:
         with:
           name: ci-artifacts
           path: ./dist  # Укажите путь к вашей собранной версии
-          # retention-days: 1  # Хранить артефакты 1 день
+          retention-days: 1  # Хранить артефакты 1 день

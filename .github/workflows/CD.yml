@@ -52,13 +52,15 @@ jobs:
         # Шаг для загрузки артефактов из последнего успешного CI при ручном запуске
       - name: Download artifacts from last successful CI (if manual trigger)
         if: github.event_name == 'workflow_dispatch'
-        uses: actions/download-artifact@v4
+        uses: dawidd6/action-download-artifact@v11
         with:
+          workflow: CI.yml
           name: ci-artifacts
-          path: ./dist
+          path: ./dist        # Куда сохранить
+          branch: main
 
       - name: Set up Node
-        if: github.event_name != 'workflow_dispatch'  # Пропускаем если используем артефакты
+        if: github.event_name != 'workflow_dispatch' # Пропускаем если используем артефакты
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
