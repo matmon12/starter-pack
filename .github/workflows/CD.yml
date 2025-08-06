@@ -8,6 +8,12 @@ on:
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+    inputs:
+      use_last_successful_ci:
+        description: 'Use artifacts from last successful CI run'
+        required: false
+        default: true
+        type: boolean
 
   # Автоматическая проверка CI
   workflow_run:
@@ -30,7 +36,11 @@ jobs:
   # Single deploy job since we're just deploying
   deploy:
     # Проверяем, что CI завершился успешно
-    if: ${{github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.name == 'CI'}}
+    if:
+      (github.event_name == 'workflow_dispatch' && inputs.use_last_successful_ci) ||
+      (github.event_name == 'workflow_run' &&
+       github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.name == 'CI')
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -38,15 +48,30 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+        # Шаг для загрузки артефактов из последнего успешного CI при ручном запуске
+      - name: Download artifacts from last successful CI (if manual trigger)
+        if: github.event_name == 'workflow_dispatch'
+        uses: actions/download-artifact@v4
+        with:
+          name: ci-artifacts
+          path: ./dist
+
       - name: Set up Node
+        if: github.event_name != 'workflow_dispatch'  # Пропускаем если используем артефакты
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
           cache: 'npm'
+
       - name: Install dependencies
+        if: github.event_name != 'workflow_dispatch'
         run: npm ci
+
       - name: Build
+        if: github.event_name != 'workflow_dispatch'
         run: npm run build
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
