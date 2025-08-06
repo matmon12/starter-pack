@@ -6,8 +6,9 @@ on:
   # push:
   #   branches: ['main']
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Ручной запуск
   workflow_dispatch:
+    # Добавляет чекбокс для использования артефакта
     inputs:
       use_last_successful_ci:
         description: 'Use artifacts from last successful CI run'
@@ -15,7 +16,7 @@ on:
         default: true
         type: boolean
 
-  # Автоматическая проверка CI
+  # Автоматический запуск после завершения CI
   workflow_run:
     workflows: ['CI']
     types: [completed]
@@ -33,14 +34,15 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
-    # Проверяем, что CI завершился успешно
+    # Проверяет, что для запущенного вручную workflow выбрано использование артефакта
+    # Проверяет, что триггеривший этот workflow запуск другого workflow завершился успешно
     if:
       (github.event_name == 'workflow_dispatch' && inputs.use_last_successful_ci) ||
       (github.event_name == 'workflow_run' &&
        github.event.workflow_run.conclusion == 'success' &&
        github.event.workflow_run.name == 'CI')
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -56,11 +58,12 @@ jobs:
         with:
           workflow: CI.yml
           name: ci-artifacts
-          path: ./dist        # Куда сохранить
+          path: ./dist
           branch: main
 
+        # Пропускаем если используем артефакты
       - name: Set up Node
-        if: github.event_name != 'workflow_dispatch' # Пропускаем если используем артефакты
+        if: github.event_name != 'workflow_dispatch'
         uses: actions/setup-node@v4
         with:
           node-version: lts/*
