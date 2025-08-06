@@ -52,7 +52,7 @@ jobs:
         # Шаг для загрузки артефактов из последнего успешного CI при ручном запуске
       - name: Download artifacts from last successful CI (if manual trigger)
         if: github.event_name == 'workflow_dispatch'
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: ci-artifacts
           path: ./dist

@@ -58,7 +58,7 @@ jobs:
         run: npm run build  # Замените на вашу команду сборки, если отличается
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ci-artifacts
           path: ./dist  # Укажите путь к вашей собранной версии
