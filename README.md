@@ -1,7 +1,7 @@
 <h1 align="center">Starter Pack</h1>
 
 <div align="center" id="top">
-  <img src="./public/readme-logo.svg" alt="logo" style="font-size: 30px;" />
+  <img src="./public/readme-logo.svg" alt="logo" />
 </div>
 &#xa0;
 
