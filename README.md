@@ -3,103 +3,366 @@
 <div align="center" id="top">
   <img src="./public/readme-logo.svg" alt="logo" />
 </div>
-&#xa0;
 
 <p align="center">
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/matmon12/starter-pack?color=42d392">
-
   <img alt="Github language count" src="https://img.shields.io/github/languages/count/matmon12/starter-pack?color=d36449">
-
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/matmon12/starter-pack?color=4cc71e">
-
   <img alt="License" src="https://img.shields.io/github/license/matmon12/starter-pack?color=56BEB8">
-
   <img alt="Github stars" src="https://img.shields.io/github/stars/matmon12/starter-pack?color=56BEB8" />
 </p>
 
 <p align="center">
-  <a href="#dart-about">About</a> &#xa0; | &#xa0;
-  <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
-  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
-  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
-  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
-  <a href="#memo-license">License</a> &#xa0; | &#xa0;
-  <a href="https://github.com/matmon12" target="_blank">Author</a>
+  <a href="#clipboard-о-проекте">О проекте</a> &#xa0; | &#xa0;
+  <a href="#sparkles-возможности">Возможности</a> &#xa0; | &#xa0;
+  <a href="#wrench-технологии">Технологии</a> &#xa0; | &#xa0;
+  <a href="#package-требования">Требования</a> &#xa0; | &#xa0;
+  <a href="#rocket-быстрый-старт">Быстрый старт</a> &#xa0; | &#xa0;
+  <a href="#file_folder-структура-проекта">Структура</a> &#xa0; | &#xa0;
+  <a href="#gear-конфигурация">Конфигурация</a> &#xa0; | &#xa0;
+  <a href="#repeat-cicd">CI/CD</a> &#xa0; | &#xa0;
+  <a href="#page_facing_up-лицензия">Лицензия</a>
 </p>
 
-<br>
+## :clipboard: О проекте
 
-## :dart: About ##
+**Starter Pack** — это полнофункциональный стартовый шаблон для разработки современных веб-приложений на Vue 3 с TypeScript. Сборка включает в себя все необходимые инструменты и конфигурации для быстрого начала разработки, оптимизированную архитектуру и готовую инфраструктуру для деплоя на GitHub Pages.
 
-Starter template Vite + Vue3
+## :sparkles: Возможности
 
-## :sparkles: Features ##
+- ⚡ **Vite 7** — сверхбыстрая сборка, HMR, оптимизация изображений, code splitting
+- 🎯 **TypeScript** — строгий режим, автогенерация типов, проверка на этапе компиляции
+- 🔧 **Автоимпорт** — компоненты, иконки (Iconify), API (Vue, Vue Router, VueUse)
+- 🎨 **SCSS** — препроцессор с глобальными миксинами, CSS переменными, reset стилями
+- 🗂️ **Архитектура** — модульная структура, composables, кастомные директивы, type-safe роутинг
+- 🛠️ **Инструменты** — ESLint 9, Prettier, Vue TSC, параллельная сборка
+- 🚢 **CI/CD** — GitHub Actions для автоматической проверки и деплоя на GitHub Pages
 
-:heavy_check_mark: Vite 7 + Vue 3;\
-:heavy_check_mark: Vue-router;\
-:heavy_check_mark: TypeScript;\
-:heavy_check_mark: Pinia;\
-:heavy_check_mark: Components auto importing;\
-:heavy_check_mark: SCSS;\
-:heavy_check_mark: Iconify (icons as components, auto importing);\
-:heavy_check_mark: CI/CD;\
-:heavy_check_mark: Deploy on gitPages;\
-:heavy_check_mark: PrimeVue;\
-:heavy_check_mark: Eslint & prettier;\
-:heavy_check_mark: Modular architecture.
+## :wrench: Технологии
 
-## :rocket: Technologies ##
+### Основной стек
 
-The following tools were used in this project:
+- **[Vue 3.5](https://vuejs.org/)** — прогрессивный JavaScript фреймворк
+- **[TypeScript 5.8](https://www.typescriptlang.org/)** — типизированный JavaScript
+- **[Vite 7](https://vitejs.dev/)** — современный сборщик и dev-сервер
+- **[Vue Router 4.5](https://router.vuejs.org/)** — официальный роутер для Vue
+- **[Pinia 3.0](https://pinia.vuejs.org/)** — state management для Vue
 
-- [Vue](https://vuejs.org/)
-- [VueUse](https://vueuse.org/)
-- [Pinia](https://pinia.vuejs.org/)
-- [Vite](https://vitejs.dev/)
-- [PrimeVue](https://primevue.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Vue-router](https://router.vuejs.org/)
-- [Unplugin](https://unplugin.unjs.io/)
-- [SASS](https://sass-lang.com/)
+### Библиотеки и утилиты
 
-## :white_check_mark: Requirements ##
+- **[VueUse](https://vueuse.org/)** — коллекция композаблов для Vue
+  - `@vueuse/core` — основные композаблы
+  - `@vueuse/head` — управление мета-тегами
+- **[Unplugin](https://unplugin.unjs.io/)** — универсальная система плагинов
+  - `unplugin-auto-import` — автоимпорт функций
+  - `unplugin-vue-components` — автоимпорт компонентов
+  - `unplugin-icons` — иконки как компоненты
 
-Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+### Инструменты сборки
 
-## :checkered_flag: Starting ##
+- **[Sass Embedded](https://sass-lang.com/)** — компилятор SCSS
+- **[vite-plugin-image-optimizer](https://github.com/FatehAK/vite-plugin-image-optimizer)** — оптимизация изображений
+- **[npm-run-all2](https://github.com/mysticatea/npm-run-all)** — параллельный запуск скриптов
+
+### Инструменты качества кода
+
+- **[ESLint 9](https://eslint.org/)** — линтер с flat config
+- **[Prettier 3.6](https://prettier.io/)** — форматтер кода
+- **[Vue TSC 3.0](https://github.com/vuejs/language-tools)** — проверка типов в Vue файлах
+
+## :package: Требования
+
+- **Node.js**: `^20.19.0` или `>=22.12.0` (LTS версии)
+- **npm**: версия, совместимая с Node.js
+- **Git**: для клонирования репозитория
+
+## :rocket: Быстрый старт
+
+### Установка
 
 ```bash
-# Clone this project
-$ git clone https://github.com/matmon12/starter-pack.git
+# Клонирование репозитория
+git clone https://github.com/matmon12/starter-pack.git
 
-# Access
-$ cd starter-pack
+# Переход в директорию проекта
+cd starter-pack
 
-# Install dependencies
-$ npm install
-
-# Run the project
-$ npm run dev
-
-# Compiles and minifies for production
-$ npm run build
+# Установка зависимостей
+npm install
 ```
 
-### Vue 3 + Vite
+### Разработка
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+```bash
+# Запуск dev-сервера (порт 5173)
+npm run dev
 
-### Recommended IDE Setup
+# Проверка типов TypeScript
+npm run type-check
 
-- [VS Code](https://code.visualstudio.com/) + [Vue](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur)
+# Линтинг кода
+npm run lint
 
-## :memo: License ##
+# Форматирование кода
+npm run format
+```
 
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
+### Сборка
 
+```bash
+# Сборка для продакшена (с проверкой типов)
+npm run build
 
-Made with :heart: by <a href="https://github.com/matmon12" target="_blank">Matmon</a>
+# Превью продакшен-сборки
+npm run preview
 
-&#xa0;
+# Только сборка без проверки типов
+npm run build-only
+```
 
-<a href="#top">Back to top</a>
+## :file_folder: Структура проекта
+
+```
+starter-pack/
+├── .github/
+│   └── workflows/
+│       ├── CI.yml          # CI: линтинг, проверка типов, сборка
+│       └── CD.yml          # CD: деплой на GitHub Pages
+├── public/                  # Статические файлы
+│   ├── favicon.ico
+│   └── readme-logo.svg
+├── src/
+│   ├── assets/             # Ресурсы (шрифты, изображения)
+│   │   ├── fonts/
+│   │   └── images/
+│   ├── components/         # Vue компоненты
+│   │   ├── core/           # Основные компоненты (Header, Footer)
+│   │   └── UI/             # UI компоненты (Button, и др.)
+│   ├── composables/        # Переиспользуемая логика
+│   │   ├── event.ts        # Композабл для событий
+│   │   └── index.ts        # Экспорт всех композаблов
+│   ├── directives/         # Кастомные директивы
+│   │   └── intersection.ts # Директива Intersection Observer
+│   ├── layouts/            # Layout компоненты
+│   │   └── MainLayout.vue
+│   ├── router/             # Конфигурация роутера
+│   │   └── index.ts
+│   ├── stores/             # Pinia stores
+│   ├── styles/             # Глобальные стили
+│   │   ├── _fonts.scss     # Шрифты
+│   │   ├── _mixins.scss    # SCSS миксины
+│   │   ├── _style.scss     # Основные стили
+│   │   ├── _vars.scss      # CSS переменные
+│   │   └── reset.scss      # Reset стили
+│   ├── types/              # TypeScript типы
+│   ├── utils/              # Утилиты
+│   │   └── index.ts
+│   ├── views/              # Страницы приложения
+│   │   └── HomePage.vue
+│   ├── App.vue             # Корневой компонент
+│   ├── index.scss          # Главный файл стилей
+│   └── main.ts             # Точка входа приложения
+├── .editorconfig           # Настройки редактора
+├── .eslintignore           # Исключения для ESLint
+├── .gitignore              # Исключения для Git
+├── .prettierignore         # Исключения для Prettier
+├── .prettierrc.json        # Конфигурация Prettier
+├── auto-imports.d.ts       # Автогенерируемые типы для автоимпортов
+├── components.d.ts         # Автогенерируемые типы для компонентов
+├── env.d.ts                # Типы для окружения
+├── eslint.config.ts        # Конфигурация ESLint
+├── index.html              # HTML шаблон
+├── package.json            # Зависимости и скрипты
+├── tsconfig.json           # Конфигурация TypeScript
+└── vite.config.ts          # Конфигурация Vite
+```
+
+## :gear: Конфигурация
+
+### Алиасы путей
+
+Используйте `@/` для импорта из директории `src/`:
+
+```typescript
+import { useAppStore } from '@/stores'
+import HomePage from '@/views/HomePage.vue'
+import { useEventListener } from '@/composables'
+```
+
+### Автоимпорт
+
+Следующие API доступны без импорта:
+
+- **Vue**: `ref`, `reactive`, `computed`, `watch`, `onMounted`, и др.
+- **Vue Router**: `useRouter`, `useRoute`
+- **VueUse Core**: все функции из `@vueuse/core`
+- **VueUse Head**: `useHead`, `useSeoMeta`
+
+### Иконки
+
+Иконки из [Iconify](https://icon-sets.iconify.design/) доступны как компоненты:
+
+```vue
+<template>
+  <IconMdi:Home />
+  <IconCarbon:User />
+</template>
+```
+
+Иконки устанавливаются автоматически при первом использовании.
+
+### SCSS миксины
+
+Миксины автоматически доступны во всех компонентах:
+
+```scss
+.my-text {
+  @include TextOverflow(3); // Обрезка текста на 3 строки
+}
+
+.scrollable {
+  @include Scroll(8px, 8px, #f0f0f0, #888); // Кастомный скроллбар
+}
+```
+
+### CSS переменные
+
+Доступна готовая система цветов:
+
+```scss
+.element {
+  color: var(--slate-600);
+  background: var(--gray-100);
+}
+```
+
+### Dev-сервер
+
+Настройки dev-сервера в `vite.config.ts`:
+
+- **Порт**: 5173
+- **Хост**: 0.0.0.0 (доступен из сети)
+- **CORS**: включен (для работы с VPN)
+- **Автооткрытие браузера**: включено
+
+### Оптимизация изображений
+
+Настройки оптимизации в `vite.config.ts`:
+
+- **PNG/JPEG**: качество 90%
+- **SVG**: оптимизация с сохранением viewBox
+- **WebP**: lossless конвертация
+
+## :repeat: CI/CD
+
+### CI Pipeline (`.github/workflows/CI.yml`)
+
+Автоматически запускается при push в `main` и при создании PR:
+
+1. **Lint** — проверка кода ESLint
+2. **Typecheck** — проверка типов TypeScript
+3. **Build** — сборка проекта (запускается после успешного lint и typecheck)
+4. **Upload artifacts** — сохранение сборки для CD
+
+### CD Pipeline (`.github/workflows/CD.yml`)
+
+Автоматически запускается после успешного CI:
+
+1. **Download artifacts** — загрузка артефактов из CI (при ручном запуске)
+2. **Build** — сборка проекта (если не используются артефакты)
+3. **Deploy to GitHub Pages** — деплой на GitHub Pages
+
+**Особенности:**
+
+- Ручной запуск с опцией использования артефактов из последнего успешного CI
+- Автоматическое создание `404.html` для корректной работы SPA роутинга
+- Базовый путь настраивается через `base` в `vite.config.ts`
+
+### Настройка GitHub Pages
+
+1. Перейдите в Settings → Pages
+2. Выберите Source: "GitHub Actions"
+3. После первого успешного деплоя сайт будет доступен по адресу: `https://<username>.github.io/starter-pack/`
+
+## :memo: Рекомендации по использованию
+
+### Создание нового компонента
+
+1. Создайте файл в `src/components/UI/` или `src/components/core/`
+2. Компонент будет автоматически импортирован при использовании
+3. Типы будут сгенерированы в `components.d.ts`
+
+### Создание нового композабла
+
+1. Создайте файл в `src/composables/`
+2. Экспортируйте функцию из `src/composables/index.ts`
+3. Используйте через `import { useMyComposable } from '@/composables'`
+
+### Добавление новой страницы
+
+1. Создайте компонент в `src/views/`
+2. Добавьте маршрут в `src/router/index.ts`
+3. Используйте lazy loading для оптимизации:
+
+```typescript
+{
+  path: '/about',
+  component: () => import('@/views/AboutPage.vue')
+}
+```
+
+### Работа с Pinia
+
+1. Создайте store в `src/stores/`
+2. Используйте Composition API стиль:
+
+```typescript
+import { defineStore } from 'pinia'
+
+export const useMyStore = defineStore('myStore', {
+  state: () => ({ count: 0 }),
+  getters: { double: (state) => state.count * 2 },
+  actions: { increment() { this.count++ } }
+})
+```
+
+## :dart: Рекомендуемая IDE настройка
+
+### VS Code
+
+Рекомендуемые расширения:
+
+- **[Vue Language Features (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.volar)** — поддержка Vue 3
+- **[TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin)** — улучшенная поддержка TypeScript в Vue
+- **[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)** — интеграция ESLint
+- **[Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)** — интеграция Prettier
+
+**Важно**: Отключите расширение Vetur, если оно установлено — оно несовместимо с Vue 3.
+
+### Настройки VS Code
+
+Рекомендуемые настройки в `.vscode/settings.json`:
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  }
+}
+```
+
+## :page_facing_up: Лицензия
+
+Этот проект распространяется под лицензией MIT. Подробности в файле [LICENSE](LICENSE).
+
+---
+
+<p align="center">
+  Made with ❤️ by <a href="https://github.com/matmon12" target="_blank">Matmon</a>
+</p>
+
+<p align="center">
+  <a href="#top">⬆️ Вернуться наверх</a>
+</p>

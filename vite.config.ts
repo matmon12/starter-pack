@@ -1,33 +1,47 @@
 import { fileURLToPath, URL } from 'node:url'
+import { copyFileSync } from 'node:fs'
+import { join } from 'node:path'
 
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import checker from 'vite-plugin-checker'
 import AutoImport from 'unplugin-auto-import/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Icons from 'unplugin-icons/vite'
 import Components from 'unplugin-vue-components/vite'
-import { PrimeVueResolver } from 'unplugin-vue-components/resolvers'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
+
+// Плагин для создания 404.html для GitHub Pages
+function githubPages404() {
+  return {
+    name: 'github-pages-404',
+    closeBundle() {
+      const outDir = join(process.cwd(), 'dist')
+      const indexPath = join(outDir, 'index.html')
+      const notFoundPath = join(outDir, '404.html')
+
+      try {
+        // Копируем index.html в 404.html
+        copyFileSync(indexPath, notFoundPath)
+        console.log('✓ Создан 404.html для GitHub Pages')
+      } catch (error) {
+        console.error('Ошибка при создании 404.html:', error)
+      }
+    },
+  }
+}
 
 // https://vite.dev/config/
 export default defineConfig({
   base: process.env.NODE_ENV === 'production' ? '/starter-pack/': '/',
   plugins: [
     vue(),
-    checker({
-      vueTsc: true,
-    }),
+    githubPages404(),
     AutoImport({
       imports: [
         'vue',
         'vue-router',
         '@vueuse/head',
         '@vueuse/core',
-        {
-          '@/app/utils/classes': ['getClasses'],
-          '@/app/utils': ['getImageUrl']
-        },
       ],
       dts: './auto-imports.d.ts',
       vueTemplate: true
@@ -42,7 +56,6 @@ export default defineConfig({
         IconsResolver({
           // prefix: false,
         }),
-        PrimeVueResolver(),
       ],
     }),
     Icons({
@@ -97,8 +110,15 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use "@/app/styles/mixins.scss" as *;`,
+        additionalData: `@use "@/styles/mixins.scss" as *;`,
       },
     },
+  },
+  server: {
+    host: '0.0.0.0',
+    port: 5173,
+    strictPort: false,
+    open: true, // Автоматически открывать браузер
+    cors: true, // Разрешаем CORS для работы с VPN
   },
 })

@@ -1,7 +1,11 @@
-import type {IntersectionDirective} from "./types"
+import type { Directive, DirectiveBinding } from 'vue'
 
-export default <IntersectionDirective> {
-  mounted(el, binding) {
+interface IntersectionBinding {
+  active: () => void
+}
+
+const directive: Directive<HTMLElement, IntersectionBinding> = {
+  mounted(el: HTMLElement, binding: DirectiveBinding<IntersectionBinding>) {
     const options: IntersectionObserverInit = {
       rootMargin: '0px',
       threshold: 0,
@@ -18,3 +22,5 @@ export default <IntersectionDirective> {
     observer.observe(el)
   }
 }
+
+export default directive
